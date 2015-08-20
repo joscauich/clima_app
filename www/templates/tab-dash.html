@@ -1,0 +1,35 @@
+<ion-view view-title="Hoy en {{serviciopronosticos.city.name}}">
+  <ion-content>
+  <ion-radio ng-click = "updatedata()" ng-model="serviciopronosticos.metric" ng-value="'metric'">Celsius</ion-radio>
+<ion-radio ng-click = "updatedata()" ng-model="serviciopronosticos.metric" ng-value="'imperial'">Farenheit</ion-radio>
+<ion-radio ng-click = "updatedata()" ng-model="serviciopronosticos.metric" ng-value="''">Kelvin</ion-radio>
+
+<select ng-change = "updatedata()" ng-model="serviciopronosticos.ciudad">
+  <option>Cancun</option>
+  <option>Paris</option>
+  <option>Merida</option>
+  <option>Valencia</option>
+  <option>Monterrey</option>
+  <option>Colima</option>
+  <option>Chetumal</option>
+  <option>Chihuahua</option>
+  <option>Culiacan</option>
+</select>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right"  type="item-text-wrap">
+        <img ng-src="http://openweathermap.org/img/w/{{serviciopronosticos.pronosticos[0].weather[0].icon}}.png" style="width: 125px; height: 125px">
+        <h1>{{serviciopronosticos.pronosticos[0].dt * 1000 | date : 'fullDate'}}</h1>
+        <h2> Temperatura General: {{serviciopronosticos.pronosticos[0].temp.day }}°</h2>
+        <h3>Temperatura Maxima: {{serviciopronosticos.pronosticos[0].temp.max}}°</h3>
+        <h3>Temperatura Maxima: {{serviciopronosticos.pronosticos[0].temp.min}}°</h3>
+        <h2>Descripcion: {{serviciopronosticos.pronosticos[0].weather[0].description}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove()">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view view-title="Chats">
+  <ion-content>
+<ion-radio ng-click = "updatedata()" ng-model="serviciopronosticos.metric" ng-value="'metric'">Celsius</ion-radio>
+<ion-radio ng-click = "updatedata()" ng-model="serviciopronosticos.metric" ng-value="'imperial'">Farenheit</ion-radio>
+<ion-radio ng-click = "updatedata()" ng-model="serviciopronosticos.metric" ng-value="''">Kelvin</ion-radio>
+
+<select ng-change = "updatedata()" ng-model="serviciopronosticos.ciudad">
+  <option>Cancun</option>
+  <option>Paris</option>
+  <option>Merida</option>
+  <option>Valencia</option>
+  <option>Monterrey</option>
+  <option>Colima</option>
+  <option>Chetumal</option>
+  <option>Chihuahua</option>
+  <option>Culiacan</option>
+</select>
+<select ng-change = "updatedata()" ng-model="serviciopronosticos.dias">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  <option>6</option>
+  <option>7</option>
+  <option>8</option>
+  <option>9</option>
+</select>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="pronostico in serviciopronosticos.pronosticos" type="item-text-wrap" href="#/tab/chats/{{pronostico.$$hashKey}}">
+        <img ng-src="http://openweathermap.org/img/w/{{pronostico.weather[0].icon}}.png">
+        <h2>{{pronostico.dt * 1000 | date : 'fullDate'}}</h2>
+        <h3>{{pronostico.temp.day }}°</h3>
+        <h2>Descripcion: {{pronostico.weather[0].description}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove()">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,21 @@
+<ion-view view-title="Chats">
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="pronostico in serviciopronosticos.pronosticos" type="item-text-wrap">
+        <img ng-src="http://openweathermap.org/img/w/{{pronostico.weather[0].icon}}.png">
+        <h2>{{pronostico.dt * 1000 | date : 'fullDate'}}</h2>
+        <h3>{{pronostico.city.name }}</h3>
+        <h3>{{pronostico.main.temp_min }}°</h3>
+        <h3>{{pronostico.main.temp_max }}°</h3>
+        <h3>{{pronostico.dt_txt}}</h3>
+        <h3>{{pronostico.weather[0].description}}</h3>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove()">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
